@@ -1,0 +1,104 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MasterChefV2
+    network: bsc
+    source:
+      address: "0x45c54210128a065de780C4B0Df3d16664f7f859e"
+      abi: MasterChefV2
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Deposit
+        - FreeFeeUser
+        - Harvest
+        - Init
+        - Lock
+        - NewAdmin
+        - NewBoostContract
+        - NewBoostWeight
+        - NewDurationFactor
+        - NewDurationFactorOverdue
+        - NewMaxLockDuration
+        - NewOperator
+        - NewOverdueFee
+        - NewPerformanceFee
+        - NewPerformanceFeeContract
+        - NewTreasury
+        - NewUnlockFreeDuration
+        - NewVCakeContract
+        - NewWithdrawFee
+        - NewWithdrawFeeContract
+        - NewWithdrawFeePeriod
+        - OwnershipTransferred
+        - Pause
+        - Paused
+        - Unlock
+        - Unpause
+        - Unpaused
+        - Withdraw
+      abis:
+        - name: MasterChefV2
+          file: ./abis/MasterChefV2.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256,uint256,uint256,uint256)
+          handler: handleDeposit
+        - event: FreeFeeUser(indexed address,indexed bool)
+          handler: handleFreeFeeUser
+        - event: Harvest(indexed address,uint256)
+          handler: handleHarvest
+        - event: Init()
+          handler: handleInit
+        - event: Lock(indexed address,uint256,uint256,uint256,uint256)
+          handler: handleLock
+        - event: NewAdmin(address)
+          handler: handleNewAdmin
+        - event: NewBoostContract(address)
+          handler: handleNewBoostContract
+        - event: NewBoostWeight(uint256)
+          handler: handleNewBoostWeight
+        - event: NewDurationFactor(uint256)
+          handler: handleNewDurationFactor
+        - event: NewDurationFactorOverdue(uint256)
+          handler: handleNewDurationFactorOverdue
+        - event: NewMaxLockDuration(uint256)
+          handler: handleNewMaxLockDuration
+        - event: NewOperator(address)
+          handler: handleNewOperator
+        - event: NewOverdueFee(uint256)
+          handler: handleNewOverdueFee
+        - event: NewPerformanceFee(uint256)
+          handler: handleNewPerformanceFee
+        - event: NewPerformanceFeeContract(uint256)
+          handler: handleNewPerformanceFeeContract
+        - event: NewTreasury(address)
+          handler: handleNewTreasury
+        - event: NewUnlockFreeDuration(uint256)
+          handler: handleNewUnlockFreeDuration
+        - event: NewVCakeContract(address)
+          handler: handleNewVCakeContract
+        - event: NewWithdrawFee(uint256)
+          handler: handleNewWithdrawFee
+        - event: NewWithdrawFeeContract(uint256)
+          handler: handleNewWithdrawFeeContract
+        - event: NewWithdrawFeePeriod(uint256)
+          handler: handleNewWithdrawFeePeriod
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Pause()
+          handler: handlePause
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Unlock(indexed address,uint256,uint256)
+          handler: handleUnlock
+        - event: Unpause()
+          handler: handleUnpause
+        - event: Unpaused(address)
+          handler: handleUnpaused
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleWithdraw
+      file: ./src/mapping.ts
