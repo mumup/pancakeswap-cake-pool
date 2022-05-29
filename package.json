@@ -1,5 +1,5 @@
 {
-  "name": "PancakeSwap",
+  "name": "pancake-swap",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",

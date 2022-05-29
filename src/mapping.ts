@@ -50,7 +50,7 @@ export function handleLock(event: Lock): void {
   }
 
   entity.sender = event.params.sender
-  entity.lockedAmount = event.params.lockedAmount
+  entity.lockedAmount = event.params.lockedAmount.toBigDecimal()
   entity.lockedDuration = event.params.lockedDuration
   entity.blockTimestamp = event.params.blockTimestamp
   entity.shares = event.params.shares

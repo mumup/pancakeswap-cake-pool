@@ -51,13 +51,13 @@ export class CakeLock extends Entity {
     this.set("sender", Value.fromBytes(value));
   }
 
-  get lockedAmount(): BigInt {
+  get lockedAmount(): BigDecimal {
     let value = this.get("lockedAmount");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set lockedAmount(value: BigInt) {
-    this.set("lockedAmount", Value.fromBigInt(value));
+  set lockedAmount(value: BigDecimal) {
+    this.set("lockedAmount", Value.fromBigDecimal(value));
   }
 
   get shares(): BigInt {
